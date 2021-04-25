@@ -1,7 +1,7 @@
 {
-  "name": "car-rental-system",
+  "name": "cars-on-rent",
   "version": "1.0.0",
-  "description": "",
+  "description": "A nodejs based API for car rental system.",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon app.js",
