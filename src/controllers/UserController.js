@@ -66,7 +66,7 @@ const updateUserController = async (req, res) => {
 };
 
 const deleteUserController = async (req, res) => {
-  const { userId } = req.authToken;
+  const { userId } = req.params;
 
   try {
     await User.findByIdAndDelete({ _id: userId });

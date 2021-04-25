@@ -5,7 +5,9 @@ function encodeTokenWithSecret(payload) {
     algorithm: "HS256",
   };
 
-  const token = jwt.sign(payload, process.env.TOKEN_SECRET, signOptions);
+  const token = jwt.sign(payload, process.env.TOKEN_SECRET, signOptions, {
+    expiresIn: "24h",
+  });
   return token;
 }
 
