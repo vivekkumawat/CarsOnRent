@@ -8,6 +8,10 @@
 ## Endpoints
 Base Endpoint URL:- https://cars-on-rent.herokuapp.com
 
+Admin Token:- `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDgyYmUxOTA3OWIyNDIyZDg4ZThkMTYiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2MTkxODIzNDN9.1EdOFa4iJ6hL664v_S43S38ckf83hcqsytK93wrMYQU`
+
+User Token:- ``
+
 ### Auth Endpoints
 1. POST https://cars-on-rent.herokuapp.com/api/auth/login
 
@@ -42,8 +46,22 @@ Sample Payload (Only Admin):-
 
 2. GET https://cars-on-rent.herokuapp.com/api/user/all
 
-3. https://cars-on-rent.herokuapp.com/api/user/update
-4. https://cars-on-rent.herokuapp.com/api/user/delete/:userId
+Admin Token Required
+
+3. POST https://cars-on-rent.herokuapp.com/api/user/update
+
+Sample Payload:- 
+
+`{
+    "name": "Vivek Kumawat",
+    "mobile": 8054845360,
+    "password": "123@test"
+}`
+
+4. GET https://cars-on-rent.herokuapp.com/api/user/delete/:userId
+
+Admin Token Required, userId:- `6082e162d203132c9fc1450e`
+
 5. https://cars-on-rent.herokuapp.com/api/user/bookings
 
 ### Car Endpoints
