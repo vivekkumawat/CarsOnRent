@@ -14,12 +14,19 @@ Base Endpoint URL:- https://cars-on-rent.herokuapp.com
 Sample Payload:- 
 
 `{
-    "name": "Vivek",
     "mobile": 8054845362,
     "password": "123@test"
 }`
 
 2. https://cars-on-rent.herokuapp.com/api/auth/register
+
+Sample Payload:- 
+
+`{
+    "name": "Vivek",
+    "mobile": 8054845362,
+    "password": "123@test"
+}`
 
 ### User Endpoints
 1. https://cars-on-rent.herokuapp.com/api/user/add
