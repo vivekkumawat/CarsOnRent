@@ -9,7 +9,7 @@
 Base Endpoint URL:- https://cars-on-rent.herokuapp.com
 
 ### Auth Endpoints
-1. https://cars-on-rent.herokuapp.com/api/auth/login
+1. POST https://cars-on-rent.herokuapp.com/api/auth/login
 
 Sample Payload:- 
 
@@ -18,7 +18,7 @@ Sample Payload:-
     "password": "123@test"
 }`
 
-2. https://cars-on-rent.herokuapp.com/api/auth/register
+2. POST https://cars-on-rent.herokuapp.com/api/auth/register
 
 Sample Payload:- 
 
@@ -29,8 +29,19 @@ Sample Payload:-
 }`
 
 ### User Endpoints
-1. https://cars-on-rent.herokuapp.com/api/user/add
-2. https://cars-on-rent.herokuapp.com/api/user/all
+1. POST https://cars-on-rent.herokuapp.com/api/user/add
+
+Sample Payload (Only Admin):- 
+
+`{
+    "name": "Vivek Kumawat",
+    "mobile": 8054845360,
+    "password": "123@test",
+    "is_admin": false
+}`
+
+2. GET https://cars-on-rent.herokuapp.com/api/user/all
+
 3. https://cars-on-rent.herokuapp.com/api/user/update
 4. https://cars-on-rent.herokuapp.com/api/user/delete/:userId
 5. https://cars-on-rent.herokuapp.com/api/user/bookings
