@@ -138,6 +138,18 @@ const searchCarController = async (req, res) => {
               },
               {
                 to_date_time: {
+                  $gte: endDate,
+                },
+              },
+            ],
+            $and: [
+              {
+                from_date_time: {
+                  $lte: startDate,
+                },
+              },
+              {
+                to_date_time: {
                   $gte: startDate,
                 },
               },
