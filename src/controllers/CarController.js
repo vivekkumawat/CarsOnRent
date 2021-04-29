@@ -116,21 +116,51 @@ const searchCarController = async (req, res) => {
   try {
     const bookedCars = await Booking.find(
       {
-        $and: [
+        $or: [
           {
-            from_date_time: {
-              $gte: startDate,
-            },
-          },
-          {
-            to_date_time: {
-              $lte: endDate,
-            },
+            $and: [
+              {
+                from_date_time: {
+                  $gte: startDate,
+                },
+              },
+              {
+                to_date_time: {
+                  $lte: endDate,
+                },
+              },
+            ],
+            $and: [
+              {
+                from_date_time: {
+                  $lte: startDate,
+                },
+              },
+              {
+                to_date_time: {
+                  $gte: startDate,
+                },
+              },
+            ],
+            $and: [
+              {
+                from_date_time: {
+                  $lte: endDate,
+                },
+              },
+              {
+                to_date_time: {
+                  $gte: endDate,
+                },
+              },
+            ],
           },
         ],
       },
       { car_license_number: 1 }
     );
+
+    console.log(bookedCars);
 
     const allCars = await Car.find({}, { car_license_number: 1 });
 
@@ -208,6 +238,21 @@ const bookCarController = async (req, res) => {
   const { userId } = req.authToken;
 
   try {
+    const isBooked = await Booking.find({
+      car_license_number,
+      from_date_time: startDate,
+      to_date_time: endDate,
+    });
+
+    if (isBooked) {
+      return res.status(statusCode.duplicateFound.code).json({
+        error: true,
+        message: "Car is already booked for selected dates.",
+      });
+    }
+
+    console.log(isBooked);
+
     await Booking.create({
       car_id,
       user_id: userId,
