@@ -113,8 +113,8 @@ Sample Payload (User Token Required):-
     "car_id": "6082e162d203132c9fc1450e",
     "car_license_number": "KA01EM7074",
     "total_rent_bill": 5100,
-    "from_date_time": "16-01-2021",
-    "to_date_time": "17-01-2021"
+    "from_date_time": "2021-04-22",
+    "to_date_time": "2021-04-24"
 }`
 
 7. GET https://cars-on-rent.herokuapp.com/api/car/calculate-price/:carId/:fromDateTime/:toDateTime
